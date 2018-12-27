@@ -28,6 +28,12 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/auth', loginRouter);
 
+/*************************controller start*********************/
+
+app.use("/privilege",require("./routes/controller/privilegeController.js"));
+
+/*************************controller end***********************/
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

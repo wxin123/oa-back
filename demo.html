@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+
+    var arr = [1,2,3,4];
+    var b = [0,'a'];
+    arr.splice(2,0,b[0],b[1]);
+    console.log(arr)
+
+    function getList(param,callback) {
+        var sql = "",param = {
+            name:'12',
+            flag:'22',
+            description:''
+        };
+        sql+="SELECT * FROM privilege where 1=1 ";
+        if (param.name){
+            sql+=" AND name like %"+param.name+"%";
+        }
+        if(param.flag){
+            sql+=" AND flag like %"+param.flag+"%";
+        }
+        if(param.description){
+            sql+=" AND description like %"+param.description+"%";
+        }
+        sql+=" ORDER BY id DESC;";
+        console.log(sql)
+    }
+    getList()
+</script>
+</html>
