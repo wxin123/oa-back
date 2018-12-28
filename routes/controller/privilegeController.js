@@ -5,7 +5,7 @@ var service = require("../services/privilegeService.js");
 /**
  * 根据ID查询
  */
-router.get("/:id",function (req,res,next) {
+router.get("/info/:id",function (req,res,next) {
     service.getById(req,function (rst) {
         res.send(rst);
     });
@@ -16,6 +16,7 @@ router.get("/:id",function (req,res,next) {
 router.get("/page",function (req,res,next) {
     service.getPage(req,function (rst) {
         res.send(rst);
+        {name:"权限2",description:"大幅度",flag:"a"}
     });
 });
 /**
@@ -33,7 +34,6 @@ router.post('/add', function(req, res, next) {
     service.add(req,function (rst) {
         res.send(rst);
     });
-    res.send('respond with a resource');
 });
 /**
  * 编辑

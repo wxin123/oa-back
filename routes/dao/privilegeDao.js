@@ -3,7 +3,17 @@ var async = require('async');
 
 //根据ID查询对象
 function getById(id,callback) {
-
+    var querySql = "SELECT * FROM privilege where id="+id;
+    var result = {
+        status:200,
+        message:'成功'
+    };
+    db.query(querySql, function (err, rst) {
+        if (rst.length > 0) {
+            result.status = rst[0];
+        }
+        callback(result);
+    });
 }
 //查询列表（分页）
 function getPage(param,callback) {
@@ -49,7 +59,7 @@ function getPage(param,callback) {
     });
 }
 //查询列表（不分页）
-function getList(param) {
+function getList(param,callback) {
     //dao
     var listSql = "",countSql = "";
     listSql+="SELECT * FROM privilege where 1=1 ";
@@ -95,7 +105,7 @@ function getList(param) {
 function add(param,callback) {
     var addSql = "INSERT INTO privilege (`id`, `name`, `flag`, `description`) VALUES ('"+param.id+"', '"+param.name+"', '"+param.flag+"', '"+param.description+"')";
     db.query(addSql,function (err,rst) {
-
+        console.log(JSON.stringify(rst));
     });
 }
 //编辑

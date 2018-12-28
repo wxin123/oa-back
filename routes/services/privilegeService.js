@@ -23,11 +23,16 @@ function getPage(req,callback) {
 //查询列表（不分页）
 function getList(req, callback) {
     var param = req.query;
-    console.log(dao.getList(param));
+    dao.getList(param,function (rst) {
+        callback(rst);
+    });
 }
 //新增
-function add() {
-    dao.add();
+function add(req,callback) {
+    var param = req.query;
+    dao.add(param,function (rst) {
+        callback(rst);
+    });
 }
 //编辑
 function edit() {
