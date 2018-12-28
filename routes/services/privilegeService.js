@@ -1,27 +1,51 @@
-var sql = require("../sql/privilegeSql.js");
+var dao = require("../dao/privilegeDao.js");
 
-function add() {
-    sql.add();
-}
-function del() {
-    sql.del()
-}
-function getList(req,callback) {
-    var param = req.query;
-    console.log(param);
-    sql.getList(param,function (err,rows) {
-        if (err) {
-
-        }else {
-            console.log(rows)
-            return rows;
-        }
+//根据ID查询
+function getById(req,callback) {
+    var id = req.params.id;
+    dao.getById(id,function (rst) {
+        callback(rst) ;
     })
 }
-
+//查询列表（分页）
+function getPage(req,callback) {
+    var param = req.query;
+    if(!param.page){
+        param.page = 1;
+    }
+    if(!param.limit){
+        param.limit = 2;
+    }
+    dao.getPage(param,function (rst) {
+        callback(rst);
+    })
+}
+//查询列表（不分页）
+function getList(req, callback) {
+    var param = req.query;
+    console.log(dao.getList(param));
+}
+//新增
+function add() {
+    dao.add();
+}
+//编辑
+function edit() {
+    
+}
+//根据ID删除
+function delById(req,callback) {
+    var id = req.params.id;
+    dao.delById(id,function (rst) {
+        callback(rst);
+    });
+}
 
 module.exports = {
+    getById:getById,
+    getPage:getPage,
+    getList:getList,
     add:add,
-    del:del,
-    getList:getList
+    edit:edit,
+    delById:delById
 };

@@ -9,7 +9,7 @@ router.post('/login', function(req, res, next) {
     console.log(param)
     console.log(checkLogin.check(req));
     var sql = "select * form user where username="+param.username;
-    /*db.query(sql, function (err, rows) {
+    /*db.query(dao, function (err, rows) {
         console.log()
         if (err) {
             res.end("查询失败：", err)
