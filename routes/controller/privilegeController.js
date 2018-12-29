@@ -16,7 +16,7 @@ router.get("/info/:id",function (req,res,next) {
 router.get("/page",function (req,res,next) {
     service.getPage(req,function (rst) {
         res.send(rst);
-        {name:"权限2",description:"大幅度",flag:"a"}
+        // {name:"权限2",description:"大幅度",flag:"a"}
     });
 });
 /**
@@ -39,10 +39,9 @@ router.post('/add', function(req, res, next) {
  * 编辑
  */
 router.post('/edit/:id', function(req, res, next) {
-    service.add(req,function (rst) {
+    service.edit(req,function (rst) {
         res.send(rst);
     });
-    res.send('respond with a resource');
 });
 /**
  * 根据ID删除

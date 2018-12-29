@@ -1,122 +1,102 @@
 var db = require('../db.js');
 var async = require('async');
+var sqlUtil = require('../utils/sqlUtil.js');
+var resultUtil = require("../utils/resultUtil");
 
 //根据ID查询对象
 function getById(id,callback) {
-    var querySql = "SELECT * FROM privilege where id="+id;
-    var result = {
-        status:200,
-        message:'成功'
-    };
+    var querySql = sqlUtil.sql_selectById('privilege',id);
     db.query(querySql, function (err, rst) {
         if (rst.length > 0) {
-            result.status = rst[0];
+            callback(resultUtil.renderData(rst[0]));
         }
-        callback(result);
     });
 }
-//查询列表（分页）
+//查询列表
 function getPage(param,callback) {
-    var listSql = "",countSql = "";
-    listSql+="SELECT * FROM privilege where 1=1 ";
-    countSql+="SELECT COUNT(1) count FROM privilege where 1=1 ";
-    if (param.name){
-        listSql+=" AND name like '%"+param.name+"%'";
-        countSql+=" AND name like '%"+param.name+"%'";
-    }
-    if(param.flag){
-        listSql+=" AND flag like '%"+param.flag+"%'";
-        countSql+=" AND flag like '%"+param.flag+"%'";
-    }
-    if(param.description){
-        listSql+=" AND description like '%"+param.description+"%'";
-        countSql+=" AND description like '%"+param.description+"%'";
-    }
-    listSql+=" ORDER BY id DESC";
-    listSql +=" LIMIT "+(param.page-1)*param.limit+","+param.limit+";";
-    countSql+=" ORDER BY id DESC;";
-    var result = {
-        count:0,
-        list:[]
-    };
-    new Promise(function (resolve) {
-        resolve(console.log(listSql));
-    }).then(function () {
-        db.query(listSql,function (err,value) {
-            if (value){
-                result.list = value;
-            }
-        })
-    }).then(function () {
-        db.query(countSql,function (err,value2) {
-            if(value2){
-                result.count = value2[0].count;
-            }
-            callback(result);
-        });
-    }).catch(function (reason) {
-        result.messge = reason;
+    var listSql = sqlUtil.sql_page('privilege',param);
+    async.series([
+        function (callback) {
+            db.query(listSql.list,function (err,value) {
+                if (value){
+                    callback(null, value)
+                }
+            });
+        },
+        function (callback) {
+            db.query(listSql.count,function (err,value2) {
+                if(value2){
+                    callback(null,value2[0].count);
+                }
+            });
+        }
+    ],function (err,rst) {
+        console.log(listSql);
+        if(err){
+            callback(resultUtil.renderError(6001,err));
+        }else {
+            callback(resultUtil.renderList(rst[0],rst[1]));
+        }
     });
-}
-//查询列表（不分页）
-function getList(param,callback) {
-    //dao
-    var listSql = "",countSql = "";
-    listSql+="SELECT * FROM privilege where 1=1 ";
-    countSql+="SELECT COUNT(1) count FROM privilege where 1=1 ";
-    if (param.name){
-        listSql+=" AND name like '%"+param.name+"%'";
-        countSql+=" AND name like '%"+param.name+"%'";
-    }
-    if(param.flag){
-        listSql+=" AND flag like '%"+param.flag+"%'";
-        countSql+=" AND flag like '%"+param.flag+"%'";
-    }
-    if(param.description){
-        listSql+=" AND description like '%"+param.description+"%'";
-        countSql+=" AND description like '%"+param.description+"%'";
-    }
-    listSql+=" ORDER BY id DESC;";
-    countSql+=" ORDER BY id DESC;";
-    var result = {
-        count:0,
-        list:[]
-    };
-    new Promise(function (resolve) {
-        resolve(console.log(listSql));
-    }).then(function () {
-        db.query(listSql,function (err,value) {
-            if (value){
-                result.list = value;
-            }
-        })
-    }).then(function () {
-        db.query(countSql,function (err,value2) {
-            if(value2){
-                result.count = value2[0].count;
-            }
-            callback(result);
-        });
-    }).catch(function (reason) {
-        result.messge = reason;
-    });
+
 }
 //新增
 function add(param,callback) {
-    var addSql = "INSERT INTO privilege (`id`, `name`, `flag`, `description`) VALUES ('"+param.id+"', '"+param.name+"', '"+param.flag+"', '"+param.description+"')";
+    var addSql = sqlUtil.sql_add('privilege',param);
+    console.log(addSql);
     db.query(addSql,function (err,rst) {
-        console.log(JSON.stringify(rst));
+        if (!err){
+            db.query(sqlUtil.sql_selectById('privilege',rst['insertId']), function (err, rst) {
+                if (rst.length < 1) {
+                    callback(resultUtil.renderError(6001,'查无结果'));
+                } else {
+                    callback(resultUtil.renderData(rst[0]));
+                }
+            });
+        }
     });
 }
 //编辑
-function edit(param,callback) {
+function edit(param,id,callback) {
+    var editSql = sqlUtil.sql_edit('privilege',id,param);
+    console.log(editSql);
+    async.series([
+        function (callback) {
+            db.query(sqlUtil.sql_selectById('privilege',id), function (err, rst) {
+                if (rst.length < 1) {
+                    callback('查无结果', null);
+                } else {
+                    callback(null, rst[0])
+                }
+            });
+        },
+        function (callback) {
+            db.query(editSql,function (err,rst) {
+                callback(null,rst);
+            })
+        },
+        function (callback) {
+            db.query(sqlUtil.sql_selectById('privilege',id), function (err, rst) {
+                if (rst.length < 1) {
+                    callback('查无结果', null);
+                } else {
+                    callback(null, rst[0])
+                }
+            });
+        }
+    ],function (err,rst) {
+        if(err){
+            callback(6001,err)
+        }else {
+            callback(resultUtil.renderData(rst[2]));
+        }
+    });
 
 }
 //根据ID删除
 function delById(id,callback) {
-    var querySql = "SELECT * FROM privilege WHERE id="+id;
-    var delSql = "DELETE FROM privilege WHERE id="+id;
-    var result = {};
+    var querySql = sqlUtil.sql_selectById('privilege',id);
+    var delSql = sqlUtil.sql_deleteById('privilege',id);
     async.series([
         function (callback) {
             db.query(querySql, function (err, rst) {
@@ -133,17 +113,17 @@ function delById(id,callback) {
             })
         }
     ],function (err,rst) {
-        result.status = 200;
-        result.message = '成功';
-        result.data = rst[0];
-        callback(rst);
+        if(err){
+            callback(resultUtil.renderError(6001,err));
+        }else {
+            callback(resultUtil.renderData(rst[0]));
+        }
     });
 }
 
 module.exports = {
     getById:getById,
     getPage:getPage,
-    getList:getList,
     add:add,
     edit:edit,
     delById:delById
