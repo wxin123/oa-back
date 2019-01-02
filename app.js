@@ -45,6 +45,7 @@ app.use('/auth', loginRouter);
 /*************************controller start*********************/
 
 app.use("/privilege",require("./routes/controller/privilegeController.js"));
+app.use("/role",require("./routes/controller/roleController.js"));
 
 /*************************controller end***********************/
 

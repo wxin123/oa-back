@@ -2,7 +2,7 @@ var db = require('../db.js');
 var async = require('async');
 var sqlUtil = require('../utils/sqlUtil.js');
 var resultUtil = require("../utils/resultUtil");
-var Table = "privilege";
+var Table = 'role';
 //根据ID查询对象
 function getById(id,callback) {
     var querySql = sqlUtil.sql_selectById(Table,id);
