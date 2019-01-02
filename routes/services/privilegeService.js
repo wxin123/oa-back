@@ -25,7 +25,7 @@ function getPage(req,callback) {
         search.push({key:'description',val:originParam.search,condition:sqlCon.LIKE});
     }
     param.search = search;
-    param = paramUtil.page(originParam,originParam);
+    param = paramUtil.page(originParam,param);
     dao.getPage(param,function (rst) {
         callback(rst);
     })
@@ -45,7 +45,7 @@ function getList(req, callback) {
 }
 //新增
 function add(req,callback) {
-    var originParam = req.body,param = {},item = [];
+    var originParam = req.body.params,param = {},item = [];
     if(!originParam.name){
         callback(resultUtil.renderError(6001,'name不能为空'));
     }
@@ -62,7 +62,7 @@ function add(req,callback) {
 }
 //编辑
 function edit(req,callback) {
-    var originParam = req.body,id = req.params.id,param = {},item = [];
+    var originParam = req.body.params,id = req.params.id,param = {},item = [];
     if(originParam.name){
         item.push({key:'name',val:originParam.name});
     }
