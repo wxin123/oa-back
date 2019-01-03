@@ -2,7 +2,7 @@ var db = require('../db.js');
 var async = require('async');
 var sqlUtil = require('../utils/sqlUtil.js');
 var resultUtil = require("../utils/resultUtil");
-var Table = 'role';
+var Table = 'role_privilege';
 //根据ID查询对象
 function getById(id,callback) {
     var querySql = sqlUtil.sql_selectById(Table,id);
@@ -12,24 +12,21 @@ function getById(id,callback) {
         }
     });
 }
-//根据ID查询对象
-function getByIdJoinPrivilege(id,callback) {
-    var sql = "select * from oa.role r  left join (SELECT rp.id rolePrivilegeId, rp.role_id roleId ,rp.privilege_id privilegeId,p.flag privilegeFlag,p.name privilegeName FROM oa.privilege p INNER JOIN oa.role_privilege rp ON p.id = rp.privilege_id ) t on t.roleId = r.id where r.id = "+id+";"
-    db.query(sql, function (err, rst) {
-        if (rst.length > 0) {
-            callback(rst);
-        }
-    });
-}
 //查询列表
 function getPage(param,callback) {
-    var listSql = sqlUtil.sql_page(Table,param);
+    var sql = sqlUtil.sql_condition('r',param);
+    console.log(sql)
+    var listSql = {
+        list:"select * from oa.role r left join (SELECT rp.id rolePrivilegeId, rp.role_id roleId ,rp.privilege_id privilegeId,p.name privilegeName FROM oa.privilege p INNER JOIN oa.role_privilege rp ON p.id = rp.privilege_id) t  on t.roleId = r.id "+sql,
+        count:"select count(1) from (select * from oa.role r left join (SELECT rp.id rolePrivilegeId, rp.role_id roleId ,rp.privilege_id privilegeId,p.name privilegeName FROM oa.privilege p INNER JOIN oa.role_privilege rp ON p.id = rp.privilege_id) t  on t.roleId = r.id" +sql+ " group by r.id) c;"
+    };
     async.series([
         function (callback) {
             db.query(listSql.list,function (err,value) {
                 if (value){
                     callback(null, value)
                 }
+                console.log(err)
             });
         },
         function (callback) {
@@ -37,6 +34,7 @@ function getPage(param,callback) {
                 if(value2){
                     callback(null,value2[0].count);
                 }
+                console.log(err)
             });
         }
     ],function (err,rst) {
@@ -132,7 +130,6 @@ function delById(id,callback) {
 
 module.exports = {
     getById:getById,
-    getByIdJoinPrivilege:getByIdJoinPrivilege,
     getPage:getPage,
     add:add,
     edit:edit,

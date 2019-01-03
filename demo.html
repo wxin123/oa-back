@@ -171,6 +171,197 @@
     var sql = sql(param,'privilege');
     console.log(sql)
 
+    var arr = [
+        {
+        "id": 1,
+        "name": "职员",
+        "level": 1,
+        "description": "职员",
+        "rolePrivilegeId": null,
+        "roleId": null,
+        "privilegeId": null,
+        "privilegeName": null
+    }, {
+        "id": 2,
+        "name": "组长",
+        "level": 2,
+        "description": "组长",
+        "rolePrivilegeId": null, "roleId": null, "privilegeId": null, "privilegeName": null
+    }, {
+        "id": 3,
+        "name": "部门经理",
+        "level": 3,
+        "description": "部门经理",
+        "rolePrivilegeId": null,
+        "roleId": null,
+        "privilegeId": null,
+        "privilegeName": null
+    }, {
+        "id": 4,
+        "name": "总经理",
+        "level": 4,
+        "description": "总经理",
+        "rolePrivilegeId": null,
+        "roleId": null,
+        "privilegeId": null,
+        "privilegeName": null
+    }, {
+        "id": 5,
+        "name": "董事",
+        "level": 5,
+        "description": "董事",
+        "rolePrivilegeId": null,
+        "roleId": null,
+        "privilegeId": null,
+        "privilegeName": null
+    }, {
+        "id": 6,
+        "name": "董事长",
+        "level": 6,
+        "description": "董事长",
+        "rolePrivilegeId": 4,
+        "roleId": 6,
+        "privilegeId": 4,
+        "privilegeName": "员工删除"
+    }, {
+        "id": 6, "name": "董事长", "level": 6, "description": "董事长", "rolePrivilegeId": 5, "roleId":
+            6,
+        "privilegeId": 5,
+        "privilegeName": "员工查询"
+    }, {
+        "id": 7,
+        "name": "admin",
+        "level": 10,
+        "description": "系统管理员",
+        "rolePrivilegeId": 1,
+        "roleId": 7,
+        "privilegeId": 3,
+        "privilegeName": "员工编辑"
+    }, {
+        "id": 7,
+        "name": "admin",
+        "level": 10,
+        "description": "系统管理员", "rolePrivilegeId": 2, "roleId": 7, "privilegeId": 4, "privilegeName": "员工删除"
+    }, {
+        "id": 7,
+        "name": "admin",
+        "level": 10,
+        "description": "系统管理员",
+        "rolePrivilegeId": 3,
+        "roleId": 7,
+        "privilegeId": 5,
+        "privilegeName": "员工查询"
+    }]
 
+
+    function recursive(arr) {
+        var temp = [], idx = [];
+        arr.forEach(function (value) {
+            var obj = {
+                id: value.id,
+                name: value.name,
+                level: value.level,
+                description: value.description
+            };
+            if (idx.indexOf(value.id) < 0) {
+                obj.privilege = [];
+                if (obj.privilegeId != null) {
+                    obj.privilege.push({
+                        id: value.privilegeId,
+                        name: value.privilegeName
+                    });
+                }
+                idx.push(obj.id);
+                temp.push(obj);
+            } else {
+                temp[idx.indexOf(obj.id)].privilege.push({
+                    id: value.privilegeId,
+                    name: value.privilegeName
+                })
+            }
+        });
+        return temp;
+    }
+    console.log(JSON.stringify(recursive(arr)))
+
+
+    function sql_condition(table,param) {
+        var sql = "";
+        var items = param.item, page = param.page, search = param.search;
+        if (items) {
+            for (var i = 0; i < items.length; i++) {
+                var key = table+"."+items[i].key, val = items[i].val, type = items[i].type || "string",
+                    condition = items[i].condition || "eq";
+                if (type === 'string') {
+                    val = "'" + val + "'";
+                }
+                if (type === 'number') {
+                    val = Number(val);
+                }
+                if (condition === 'eq') {
+                    sql += " AND " + key + " =" + val;
+                }
+                if (condition === 'like') {
+                    sql += " AND " + key + " like '%" + val + "%'";
+                }
+                if (condition === 'gt') {
+                    sql += " AND " + key + " > " + val;
+                }
+                if (condition === 'get') {
+                    sql += " AND " + key + " >= " + val;
+                }
+                if (condition === 'lt') {
+                    sql += " AND " + key + " < " + val;
+                }
+                if (condition === 'let') {
+                    sql += " AND " + key + " <= " + val;
+                }
+            }
+        }
+        if (search) {
+            sql += " AND (";
+            for (var i = 0; i < search.length; i++) {
+                var key = search[i].key, val = search[i].val, type = search[i].type, condition = search[i].condition;
+                if (type === 'string') {
+                    val = "'" + val + "'";
+                }
+                if (type === 'number') {
+                    val = Number(val);
+                }
+                var concat = i == search.length - 1 ? " AND " : " OR ";
+                if (condition === 'eq') {
+                    sql += key + " =" + val + concat;
+                }
+                if (condition === 'like') {
+                    sql += key + " like '%" + val + "%'" + concat;
+                }
+                if (condition === 'gt') {
+                    sql += key + " >" + val + concat;
+                }
+                if (condition === 'get') {
+                    sql += key + " >=" + val + concat;
+                }
+                if (condition === 'lt') {
+                    sql += key + " < " + val + concat;
+                }
+                if (condition === 'let') {
+                    sql += key + " <= " + val + concat;
+                }
+            }
+            sql += " 1=1 ) ";
+        }
+        if (page) {
+            sql += " LIMIT " + (page[0] - 1) * page[1] + "," + page[1]+" ";
+        }
+        return sql
+    }
+    console.log(sql_condition('r',param))
+
+
+    var a = [{},{}]
+    a.forEach(function (value,idx) {
+        console.log(value)
+        console.log(idx)
+    })
 </script>
 </html>

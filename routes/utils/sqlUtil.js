@@ -166,9 +166,84 @@ function sql_page(table, param) {
     }
 }
 
+function sql_condition(table,param) {
+    var sql = "";
+    var items = param.item, page = param.page, search = param.search;
+    if(items||search){
+        sql+=" WHERE (1=1)"
+    }
+    if (items) {
+        for (var i = 0; i < items.length; i++) {
+            var key = table+"."+items[i].key, val = items[i].val, type = items[i].type || "string",
+                condition = items[i].condition || "eq";
+            if (type === 'string') {
+                val = "'" + val + "'";
+            }
+            if (type === 'number') {
+                val = Number(val);
+            }
+            if (condition === 'eq') {
+                sql += " AND " + key + " =" + val;
+            }
+            if (condition === 'like') {
+                sql += " AND " + key + " like '%" + val + "%'";
+            }
+            if (condition === 'gt') {
+                sql += " AND " + key + " > " + val;
+            }
+            if (condition === 'get') {
+                sql += " AND " + key + " >= " + val;
+            }
+            if (condition === 'lt') {
+                sql += " AND " + key + " < " + val;
+            }
+            if (condition === 'let') {
+                sql += " AND " + key + " <= " + val;
+            }
+        }
+    }
+    if (search) {
+        sql += " AND (";
+        for (var i = 0; i < search.length; i++) {
+            var key = search[i].key, val = search[i].val, type = search[i].type, condition = search[i].condition;
+            if (type === 'string') {
+                val = "'" + val + "'";
+            }
+            if (type === 'number') {
+                val = Number(val);
+            }
+            var concat = i == search.length - 1 ? " AND " : " OR ";
+            if (condition === 'eq') {
+                sql += key + " =" + val + concat;
+            }
+            if (condition === 'like') {
+                sql += key + " like '%" + val + "%'" + concat;
+            }
+            if (condition === 'gt') {
+                sql += key + " >" + val + concat;
+            }
+            if (condition === 'get') {
+                sql += key + " >=" + val + concat;
+            }
+            if (condition === 'lt') {
+                sql += key + " < " + val + concat;
+            }
+            if (condition === 'let') {
+                sql += key + " <= " + val + concat;
+            }
+        }
+        sql += " 1=1 ) ";
+    }
+    /*if (page) {
+        sql += " LIMIT " + (page[0] - 1) * page[1] + "," + page[1]+" ";
+    }*/
+    return sql
+}
+
 module.exports = {
     sqlType: sqlType,
     sqlCondition: sqlCondition,
+    sql_condition: sql_condition,
     sql_selectById: sql_selectById,
     sql_deleteById: sql_deleteById,
     sql_add: sql_add,

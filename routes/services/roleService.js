@@ -12,8 +12,8 @@ function getById(req,callback) {
     if(!id){
         callback(resultUtil.renderError(6001,"请检查id是否为空"));
     }
-    dao.getById(id,function (rst) {
-        callback(rst) ;
+    dao.getByIdJoinPrivilege(id,function (rst) {
+        callback(resultUtil.renderData(foreachRoleList(rst))) ;
     })
 }
 //查询列表（分页）
@@ -92,6 +92,25 @@ function delById(req,callback) {
     dao.delById(id,function (rst) {
         callback(rst);
     });
+}
+
+//组装role对象
+function foreachRoleList(arr) {
+    var a = arr||[],obj = {},privilegeArr = [];
+    if(a.length<1){
+        return null;
+    }
+    a.forEach(function (val,idx) {
+        privilegeArr.push({name:val.privilegeName,id:val.privilegeId,flag:val.privilegeFlag});
+        if(idx==0){
+            obj = val;
+            delete obj['privilegeName'];
+            delete obj['privilegeId'];
+            delete obj['privilegeFlag'];
+        }
+    });
+    obj.privilege = privilegeArr;
+    return obj;
 }
 
 module.exports = {
