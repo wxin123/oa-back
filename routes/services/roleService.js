@@ -78,7 +78,11 @@ function edit(req,callback) {
     if(originParam.description){
         item.push({key:'description',val:originParam.description});
     }
+    if(originParam.privilege){
+        param.privilege = originParam.privilege;
+    }
     param.item = item;
+
     dao.edit(param,id,function (rst) {
         callback(rst);
     });

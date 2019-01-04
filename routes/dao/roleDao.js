@@ -68,7 +68,8 @@ function add(param,callback) {
 //编辑
 function edit(param,id,callback) {
     var editSql = sqlUtil.sql_edit(Table,id,param);
-    console.log(editSql);
+    var privilegeList = param.privilege.split(',');
+
     async.series([
         function (callback) {
             db.query(sqlUtil.sql_selectById(Table,id), function (err, rst) {
@@ -92,9 +93,38 @@ function edit(param,id,callback) {
                     callback(null, rst[0])
                 }
             });
+        },
+        function (callback) {
+            if(privilegeList.length>0){
+                db.query(sqlUtil.sql_delByField('role_privilege','role_id',id),function (err,rst) {
+                    callback(null,rst)
+                })
+            }else {
+                callback(null,null)
+            }
+        },
+        function (callback) {
+            var param = [];
+            console.log(privilegeList)
+            if(privilegeList.length>0){
+                for(var i = 0;i< privilegeList.length;i++){
+                    param.push({
+                        "role_id":id,
+                        "privilege_id":parseInt(privilegeList[i])
+                    });
+                }
+                console.log(sqlUtil.sql_batchInsert('role_privilege',param));
+                db.query(sqlUtil.sql_batchInsert('role_privilege',param),function (err,rst) {
+                    console.log(err)
+                    callback(null,rst)
+                })
+            }else {
+                callback(null,null)
+            }
         }
     ],function (err,rst) {
         if(err){
+            console.log(err)
             callback(6001,err)
         }else {
             callback(resultUtil.renderData(rst[2]));

@@ -240,6 +240,31 @@ function sql_condition(table,param) {
     return sql
 }
 
+function sql_delByField(table,fieldKey,fieldVal) {
+    return sql = "DELETE FROM "+table+" WHERE "+fieldKey+"="+fieldVal;
+}
+
+function sql_batchInsert(table, param) {
+    var sql = "INSERT INTO " + table, keys = " (",vals = "";
+    for (var i = 0; i < param.length; i++) {
+        var obj = param[i], val = " (";
+        for (var item in obj) {
+            val += obj[item] + ",";
+            if (i < 1) {
+                keys += " `" + item + "`,";
+            }
+        }
+        if (i < 1) {
+            keys = keys.slice(0, keys.length - 1) + ") ";
+        }
+        val = val.slice(0, val.length - 1) + ") ,";
+        vals+=val;
+    }
+    vals = vals.slice(0, vals.length - 1);
+    sql = sql + keys + " VALUES " + vals + ";";
+    return sql;
+}
+
 module.exports = {
     sqlType: sqlType,
     sqlCondition: sqlCondition,
@@ -248,5 +273,7 @@ module.exports = {
     sql_deleteById: sql_deleteById,
     sql_add: sql_add,
     sql_page: sql_page,
-    sql_edit: sql_edit
+    sql_edit: sql_edit,
+    sql_delByField:sql_delByField,
+    sql_batchInsert:sql_batchInsert
 };

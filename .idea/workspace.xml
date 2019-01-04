@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d5c029fc-87d5-438d-8924-274f4e52e860" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/routes/dao/rolePrivilegeDao.js" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/demo.html" afterPath="$PROJECT_DIR$/demo.html" />
       <change beforePath="$PROJECT_DIR$/routes/dao/roleDao.js" afterPath="$PROJECT_DIR$/routes/dao/roleDao.js" />
@@ -24,7 +23,7 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
+            <state relative-caret-position="1175">
               <caret line="47" column="56" lean-forward="false" selection-start-line="47" selection-start-column="56" selection-end-line="47" selection-end-column="56" />
               <folding />
             </state>
@@ -34,8 +33,8 @@
       <file leaf-file-name="roleController.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/controller/roleController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1273">
-              <caret line="53" column="3" lean-forward="true" selection-start-line="53" selection-start-column="3" selection-end-line="53" selection-end-column="3" />
+            <state relative-caret-position="351">
+              <caret line="42" column="14" lean-forward="true" selection-start-line="42" selection-start-column="14" selection-end-line="42" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -44,8 +43,8 @@
       <file leaf-file-name="roleDao.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/dao/roleDao.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="51" column="4" lean-forward="true" selection-start-line="51" selection-start-column="4" selection-end-line="51" selection-end-column="4" />
+            <state relative-caret-position="-350">
+              <caret line="4" column="19" lean-forward="true" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
               <folding>
                 <element signature="n#!!block;n#getById#0" expanded="false" />
                 <element signature="e#314#414#0" expanded="false" />
@@ -67,33 +66,21 @@
                 <element signature="e#1893#2117#0" expanded="false" />
                 <element signature="e#1931#2017#0" expanded="false" />
                 <element signature="e#2023#2103#0" expanded="false" />
-                <element signature="n#!!block;n#edit#0" expanded="false" />
-                <element signature="e#2275#3027#0" expanded="false" />
-                <element signature="e#2305#2577#0" expanded="false" />
-                <element signature="e#2382#2565#0" expanded="false" />
-                <element signature="e#2420#2483#0" expanded="false" />
-                <element signature="e#2489#2551#0" expanded="false" />
-                <element signature="e#2607#2719#0" expanded="false" />
-                <element signature="e#2657#2708#0" expanded="false" />
-                <element signature="e#2749#3021#0" expanded="false" />
-                <element signature="e#2826#3009#0" expanded="false" />
-                <element signature="e#2864#2927#0" expanded="false" />
-                <element signature="e#2933#2995#0" expanded="false" />
-                <element signature="e#3047#3181#0" expanded="false" />
-                <element signature="e#3064#3106#0" expanded="false" />
-                <element signature="e#3111#3175#0" expanded="false" />
+                <element signature="e#2409#2592#0" expanded="false" />
+                <element signature="e#2447#2510#0" expanded="false" />
+                <element signature="e#2516#2578#0" expanded="false" />
+                <element signature="e#2891#2954#0" expanded="false" />
                 <element signature="n#!!block;n#delById#0" expanded="false" />
-                <element signature="e#3349#3775#0" expanded="false" />
-                <element signature="e#3379#3627#0" expanded="false" />
-                <element signature="e#3432#3615#0" expanded="false" />
-                <element signature="e#3470#3533#0" expanded="false" />
-                <element signature="e#3539#3601#0" expanded="false" />
-                <element signature="e#3657#3769#0" expanded="false" />
-                <element signature="e#3706#3758#0" expanded="false" />
-                <element signature="e#3795#3954#0" expanded="false" />
-                <element signature="e#3812#3879#0" expanded="false" />
-                <element signature="e#3884#3948#0" expanded="false" />
-                <element signature="e#3977#4117#0" expanded="false" />
+                <element signature="e#4438#4864#0" expanded="false" />
+                <element signature="e#4468#4716#0" expanded="false" />
+                <element signature="e#4521#4704#0" expanded="false" />
+                <element signature="e#4559#4622#0" expanded="false" />
+                <element signature="e#4628#4690#0" expanded="false" />
+                <element signature="e#4746#4858#0" expanded="false" />
+                <element signature="e#4795#4847#0" expanded="false" />
+                <element signature="e#4884#5043#0" expanded="false" />
+                <element signature="e#4901#4968#0" expanded="false" />
+                <element signature="e#4973#5037#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -102,8 +89,8 @@
       <file leaf-file-name="roleService.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/services/roleService.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1285">
-              <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+            <state relative-caret-position="145">
+              <caret line="104" column="20" lean-forward="true" selection-start-line="104" selection-start-column="20" selection-end-line="104" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -112,8 +99,8 @@
       <file leaf-file-name="demo.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/demo.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="284" column="45" lean-forward="true" selection-start-line="284" selection-start-column="45" selection-end-line="284" selection-end-column="45" />
+            <state relative-caret-position="91">
+              <caret line="377" column="5" lean-forward="true" selection-start-line="377" selection-start-column="5" selection-end-line="377" selection-end-column="5" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#label#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -149,8 +136,8 @@
       <file leaf-file-name="privilegeDao.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/dao/privilegeDao.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="25">
-              <caret line="4" column="24" lean-forward="false" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
+            <state relative-caret-position="500">
+              <caret line="39" column="7" lean-forward="true" selection-start-line="17" selection-start-column="4" selection-end-line="39" selection-end-column="7" />
               <folding>
                 <element signature="n#!!block;n#getById#0" expanded="false" />
                 <element signature="e#2888#3314#0" expanded="false" />
@@ -162,18 +149,20 @@
       <file leaf-file-name="sqlUtil.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/utils/sqlUtil.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="214">
-              <caret line="179" column="38" lean-forward="true" selection-start-line="179" selection-start-column="38" selection-end-line="179" selection-end-column="38" />
+            <state relative-caret-position="250">
+              <caret line="249" column="39" lean-forward="true" selection-start-line="249" selection-start-column="39" selection-end-line="249" selection-end-column="39" />
               <folding>
                 <element signature="n#!!block;n#sqlType#0" expanded="false" />
                 <element signature="n#!!block;n#sqlCondition#0" expanded="false" />
                 <element signature="n#!!block;n#sql_selectById#0" expanded="false" />
                 <element signature="n#!!block;n#sql_deleteById#0" expanded="false" />
                 <element signature="n#!!block;n#sql_edit#0" expanded="false" />
-                <element signature="n#!!block;n#sql_add#0" expanded="false" />
                 <element signature="n#!!block;n#sql_page#0" expanded="false" />
                 <element signature="e#2220#3626#0" expanded="false" />
                 <element signature="e#3643#5192#0" expanded="false" />
+                <element signature="n#!!block;n#sql_condition#0" expanded="false" />
+                <element signature="e#5648#6687#0" expanded="false" />
+                <element signature="e#6704#7813#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -242,11 +231,11 @@
         <option value="$PROJECT_DIR$/routes/enum/staffLevelEnum.js" />
         <option value="$PROJECT_DIR$/routes/controller/roleController.js" />
         <option value="$PROJECT_DIR$/routes/enum/roleLevelEnum.json" />
-        <option value="$PROJECT_DIR$/routes/utils/sqlUtil.js" />
         <option value="$PROJECT_DIR$/routes/dao/rolePrivilegeDao.js" />
-        <option value="$PROJECT_DIR$/demo.html" />
-        <option value="$PROJECT_DIR$/routes/dao/roleDao.js" />
         <option value="$PROJECT_DIR$/routes/services/roleService.js" />
+        <option value="$PROJECT_DIR$/routes/dao/roleDao.js" />
+        <option value="$PROJECT_DIR$/demo.html" />
+        <option value="$PROJECT_DIR$/routes/utils/sqlUtil.js" />
       </list>
     </option>
   </component>
@@ -265,7 +254,7 @@
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1936" />
@@ -296,6 +285,11 @@
             <path>
               <item name="oa-back" type="b2602c69:ProjectViewProjectNode" />
               <item name="oa-back" type="462c0819:PsiDirectoryNode" />
+              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oa-back" type="b2602c69:ProjectViewProjectNode" />
+              <item name="oa-back" type="462c0819:PsiDirectoryNode" />
               <item name="routes" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -320,8 +314,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -375,15 +369,16 @@
       <workItem from="1545957853506" duration="25783000" />
       <workItem from="1546045189638" duration="27009000" />
       <workItem from="1546397450840" duration="12301000" />
-      <workItem from="1546476913077" duration="12209000" />
+      <workItem from="1546476913077" duration="12304000" />
+      <workItem from="1546562676598" duration="8082000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="96028000" />
+    <option name="totallyTimeSpent" value="104205000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20706007" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -392,7 +387,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42282608" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11413044" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.46304348" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -428,10 +423,12 @@
             <element signature="n#!!block;n#sql_selectById#0" expanded="false" />
             <element signature="n#!!block;n#sql_deleteById#0" expanded="false" />
             <element signature="n#!!block;n#sql_edit#0" expanded="false" />
-            <element signature="n#!!block;n#sql_add#0" expanded="false" />
             <element signature="n#!!block;n#sql_page#0" expanded="false" />
             <element signature="e#2220#3626#0" expanded="false" />
             <element signature="e#3643#5192#0" expanded="false" />
+            <element signature="n#!!block;n#sql_condition#0" expanded="false" />
+            <element signature="e#5648#6687#0" expanded="false" />
+            <element signature="e#6704#7813#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -447,7 +444,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
           <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -694,7 +690,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
           <caret line="7" column="2" lean-forward="true" selection-start-line="7" selection-start-column="2" selection-end-line="7" selection-end-column="2" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -718,7 +713,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state relative-caret-position="1175">
           <caret line="47" column="56" lean-forward="false" selection-start-line="47" selection-start-column="56" selection-end-line="47" selection-end-column="56" />
           <folding />
         </state>
@@ -729,7 +724,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -737,7 +731,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -745,7 +738,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="266">
           <caret line="19" column="2" lean-forward="true" selection-start-line="19" selection-start-column="2" selection-end-line="19" selection-end-column="2" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -759,8 +751,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/dao/privilegeDao.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="4" column="24" lean-forward="false" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
+        <state relative-caret-position="500">
+          <caret line="39" column="7" lean-forward="true" selection-start-line="17" selection-start-column="4" selection-end-line="39" selection-end-column="7" />
           <folding>
             <element signature="n#!!block;n#getById#0" expanded="false" />
             <element signature="e#2888#3314#0" expanded="false" />
@@ -768,21 +760,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/utils/sqlUtil.js">
+    <entry file="file://$PROJECT_DIR$/routes/controller/roleController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="179" column="38" lean-forward="true" selection-start-line="179" selection-start-column="38" selection-end-line="179" selection-end-column="38" />
-          <folding>
-            <element signature="n#!!block;n#sqlType#0" expanded="false" />
-            <element signature="n#!!block;n#sqlCondition#0" expanded="false" />
-            <element signature="n#!!block;n#sql_selectById#0" expanded="false" />
-            <element signature="n#!!block;n#sql_deleteById#0" expanded="false" />
-            <element signature="n#!!block;n#sql_edit#0" expanded="false" />
-            <element signature="n#!!block;n#sql_add#0" expanded="false" />
-            <element signature="n#!!block;n#sql_page#0" expanded="false" />
-            <element signature="e#2220#3626#0" expanded="false" />
-            <element signature="e#3643#5192#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="351">
+          <caret line="42" column="14" lean-forward="true" selection-start-line="42" selection-start-column="14" selection-end-line="42" selection-end-column="14" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -794,74 +776,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/dao/roleDao.js">
+    <entry file="file://$PROJECT_DIR$/routes/utils/sqlUtil.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="51" column="4" lean-forward="true" selection-start-line="51" selection-start-column="4" selection-end-line="51" selection-end-column="4" />
+        <state relative-caret-position="250">
+          <caret line="249" column="39" lean-forward="true" selection-start-line="249" selection-start-column="39" selection-end-line="249" selection-end-column="39" />
           <folding>
-            <element signature="n#!!block;n#getById#0" expanded="false" />
-            <element signature="e#314#414#0" expanded="false" />
-            <element signature="e#344#408#0" expanded="false" />
-            <element signature="n#!!block;n#getPage#0" expanded="false" />
-            <element signature="e#993#1415#0" expanded="false" />
-            <element signature="e#1023#1195#0" expanded="false" />
-            <element signature="e#1080#1183#0" expanded="false" />
-            <element signature="e#1108#1169#0" expanded="false" />
-            <element signature="e#1225#1409#0" expanded="false" />
-            <element signature="e#1284#1397#0" expanded="false" />
-            <element signature="e#1312#1383#0" expanded="false" />
-            <element signature="e#1435#1631#0" expanded="false" />
-            <element signature="e#1482#1549#0" expanded="false" />
-            <element signature="e#1554#1625#0" expanded="false" />
-            <element signature="n#!!block;n#add#0" expanded="false" />
-            <element signature="e#1784#2135#0" expanded="false" />
-            <element signature="e#1803#2129#0" expanded="false" />
-            <element signature="e#1893#2117#0" expanded="false" />
-            <element signature="e#1931#2017#0" expanded="false" />
-            <element signature="e#2023#2103#0" expanded="false" />
-            <element signature="n#!!block;n#edit#0" expanded="false" />
-            <element signature="e#2275#3027#0" expanded="false" />
-            <element signature="e#2305#2577#0" expanded="false" />
-            <element signature="e#2382#2565#0" expanded="false" />
-            <element signature="e#2420#2483#0" expanded="false" />
-            <element signature="e#2489#2551#0" expanded="false" />
-            <element signature="e#2607#2719#0" expanded="false" />
-            <element signature="e#2657#2708#0" expanded="false" />
-            <element signature="e#2749#3021#0" expanded="false" />
-            <element signature="e#2826#3009#0" expanded="false" />
-            <element signature="e#2864#2927#0" expanded="false" />
-            <element signature="e#2933#2995#0" expanded="false" />
-            <element signature="e#3047#3181#0" expanded="false" />
-            <element signature="e#3064#3106#0" expanded="false" />
-            <element signature="e#3111#3175#0" expanded="false" />
-            <element signature="n#!!block;n#delById#0" expanded="false" />
-            <element signature="e#3349#3775#0" expanded="false" />
-            <element signature="e#3379#3627#0" expanded="false" />
-            <element signature="e#3432#3615#0" expanded="false" />
-            <element signature="e#3470#3533#0" expanded="false" />
-            <element signature="e#3539#3601#0" expanded="false" />
-            <element signature="e#3657#3769#0" expanded="false" />
-            <element signature="e#3706#3758#0" expanded="false" />
-            <element signature="e#3795#3954#0" expanded="false" />
-            <element signature="e#3812#3879#0" expanded="false" />
-            <element signature="e#3884#3948#0" expanded="false" />
-            <element signature="e#3977#4117#0" expanded="false" />
+            <element signature="n#!!block;n#sqlType#0" expanded="false" />
+            <element signature="n#!!block;n#sqlCondition#0" expanded="false" />
+            <element signature="n#!!block;n#sql_selectById#0" expanded="false" />
+            <element signature="n#!!block;n#sql_deleteById#0" expanded="false" />
+            <element signature="n#!!block;n#sql_edit#0" expanded="false" />
+            <element signature="n#!!block;n#sql_page#0" expanded="false" />
+            <element signature="e#2220#3626#0" expanded="false" />
+            <element signature="e#3643#5192#0" expanded="false" />
+            <element signature="n#!!block;n#sql_condition#0" expanded="false" />
+            <element signature="e#5648#6687#0" expanded="false" />
+            <element signature="e#6704#7813#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/controller/roleController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1273">
-          <caret line="53" column="3" lean-forward="true" selection-start-line="53" selection-start-column="3" selection-end-line="53" selection-end-column="3" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/demo.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="284" column="45" lean-forward="true" selection-start-line="284" selection-start-column="45" selection-end-line="284" selection-end-column="45" />
+        <state relative-caret-position="91">
+          <caret line="377" column="5" lean-forward="true" selection-start-line="377" selection-start-column="5" selection-end-line="377" selection-end-column="5" />
           <folding>
             <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#label#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -883,10 +821,54 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/routes/dao/roleDao.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-350">
+          <caret line="4" column="19" lean-forward="true" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
+          <folding>
+            <element signature="n#!!block;n#getById#0" expanded="false" />
+            <element signature="e#314#414#0" expanded="false" />
+            <element signature="e#344#408#0" expanded="false" />
+            <element signature="n#!!block;n#getPage#0" expanded="false" />
+            <element signature="e#993#1415#0" expanded="false" />
+            <element signature="e#1023#1195#0" expanded="false" />
+            <element signature="e#1080#1183#0" expanded="false" />
+            <element signature="e#1108#1169#0" expanded="false" />
+            <element signature="e#1225#1409#0" expanded="false" />
+            <element signature="e#1284#1397#0" expanded="false" />
+            <element signature="e#1312#1383#0" expanded="false" />
+            <element signature="e#1435#1631#0" expanded="false" />
+            <element signature="e#1482#1549#0" expanded="false" />
+            <element signature="e#1554#1625#0" expanded="false" />
+            <element signature="n#!!block;n#add#0" expanded="false" />
+            <element signature="e#1784#2135#0" expanded="false" />
+            <element signature="e#1803#2129#0" expanded="false" />
+            <element signature="e#1893#2117#0" expanded="false" />
+            <element signature="e#1931#2017#0" expanded="false" />
+            <element signature="e#2023#2103#0" expanded="false" />
+            <element signature="e#2409#2592#0" expanded="false" />
+            <element signature="e#2447#2510#0" expanded="false" />
+            <element signature="e#2516#2578#0" expanded="false" />
+            <element signature="e#2891#2954#0" expanded="false" />
+            <element signature="n#!!block;n#delById#0" expanded="false" />
+            <element signature="e#4438#4864#0" expanded="false" />
+            <element signature="e#4468#4716#0" expanded="false" />
+            <element signature="e#4521#4704#0" expanded="false" />
+            <element signature="e#4559#4622#0" expanded="false" />
+            <element signature="e#4628#4690#0" expanded="false" />
+            <element signature="e#4746#4858#0" expanded="false" />
+            <element signature="e#4795#4847#0" expanded="false" />
+            <element signature="e#4884#5043#0" expanded="false" />
+            <element signature="e#4901#4968#0" expanded="false" />
+            <element signature="e#4973#5037#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/routes/services/roleService.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1285">
-          <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+        <state relative-caret-position="145">
+          <caret line="104" column="20" lean-forward="true" selection-start-line="104" selection-start-column="20" selection-end-line="104" selection-end-column="20" />
           <folding />
         </state>
       </provider>
